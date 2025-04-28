@@ -47,7 +47,7 @@ node src/<path-to-file>
 ```
 
 **Example**
-To run cp.js manually:
+To run create.js manually:
 
 ```
 node src/fs/create.js
