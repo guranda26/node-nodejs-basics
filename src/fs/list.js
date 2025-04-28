@@ -1,13 +1,14 @@
 import { promises as fs } from "fs";
+import { join } from "path";
 
-const arrSrc = "./files";
+const filesDir = join("src", "fs", "files");
 
 const list = async () => {
   try {
-    const files = await fs.readdir(arrSrc);
-    console.log(files);
+    const filesToDisplay = await fs.readdir(filesDir);
+    console.log(filesToDisplay);
   } catch (err) {
-    throw new Error("FS operation failed");
+    throw new Error("FS operation failed 💣 ❌");
   }
 };
 

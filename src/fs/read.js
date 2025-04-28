@@ -1,8 +1,12 @@
 import { promises as fs } from "fs";
+import { join } from "path";
+
+
 const read = async () => {
+  const fileToRead = join("src", "fs", "files", "fileToRead.txt");
   try {
     const data = await fs.readFile(
-      "./files/fileToRead.txt",
+      fileToRead,
       "utf-8",
       (err, data) => {
         console.log(err);
@@ -10,7 +14,7 @@ const read = async () => {
     );
     console.log(data);
   } catch (err) {
-    throw new Error("FS operation failed");
+    throw new Error("FS operation failed 💣 ❌");
   }
 };
 
