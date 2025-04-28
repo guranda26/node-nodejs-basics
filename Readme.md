@@ -1,3 +1,3 @@
 # Node.js basics
 
-## !!! Please don't submit Pull Requests to this repository !!!
+## To start the project, please use package.json commands or type node with file path. For example: node src/fs/create
