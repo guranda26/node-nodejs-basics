@@ -1,20 +1,22 @@
-import { promises as fs } from "node:fs";
-
-const path = "./fresh.txt";
+import { promises as fs } from "fs";
+import { join } from "path";
 
 const create = async () => {
+  const filePath = join("src", "fs", "files", "fresh.txt")
   try {
-    await fs.stat(path);
-
-    throw new Error("FS operation failed");
+    await fs.access(filePath);
+    throw new Error("FS operation failed 💣")    
   } catch (error) {
-    if (error.code === "ENOENT") {
-      await fs.writeFile(path, "I am fresh and young");
-      console.log("File created");
+    if(error.code === "ENOENT") {
+      await fs.writeFile(filePath, "I am fresh and young", { flag: "wx" });
+      console.log("File created successfully ✨");
     } else {
-      throw error;
+      throw new Error("FS operation failed 💣");
     }
+    
   }
 };
+
+
 
 await create();
