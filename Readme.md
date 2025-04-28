@@ -16,15 +16,21 @@ If a script is defined in `package.json`, you can run:
 ```bash
 npm run <script-name>
 
+```
+
+
 ### Example
 Given this in package.json:
 
 ```
+
 {
   "scripts": {
     "fs:create": "node src/fs/create.js"
   }
 }
+
+```
 
 To run:
 
