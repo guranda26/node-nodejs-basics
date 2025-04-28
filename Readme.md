@@ -34,5 +34,7 @@ Given this in package.json:
 
 To run:
 
+```
 npm run fs:create
+```
 
