@@ -1,19 +1,26 @@
-import path from "node:path";
-import { release, version } from "node:os";
-import { createServer as createServerHttp } from "node:http";
-const random = Math.random();
-
+import path from "path";
+import { release, version } from "os";
+import { createServer as createServerHttp } from "http";
+import { URL } from "url";
 import "./files/c.js";
 
-import { URL } from "url";
+const random = Math.random();
 
 const __filename = new URL("", import.meta.url).pathname;
 const __dirname = new URL(".", import.meta.url).pathname;
 
+
 const jsonFile = async (data) => {
-  return await import(`./files/${data}.json`, {
-    assert: { type: "json" },
+ try {
+  const filePath = path.join(__dirname, `files/${data}.json`);
+  const fileUrl = new URL(filePath, import.meta.url);
+  const module = await import(fileUrl, {
+    with: { type: "json" },
   });
+  return module.default;
+ } catch (error) {
+  console.error("Failed to load JSON", error)
+ }
 };
 
 let unknownObject;
@@ -26,7 +33,7 @@ if (random > 0.5) {
 
 console.log(`Release ${release()}`);
 console.log(`Version ${version()}`);
-console.log(`Path segment separator is "${path.sep}"`);
+console.log(`Path segment separator is ${path.sep}`);
 
 console.log(`Path to current file is ${__filename}`);
 console.log(`Path to current directory is ${__dirname}`);
