@@ -1,3 +1,32 @@
 # Node.js basics
 
-## To start the project, please use package.json commands or type node with file path. For example: node src/fs/create
+## How to Run the Project
+
+You can run each task either:
+
+- Using **npm scripts** (recommended)
+- Using **node** directly
+
+---
+
+## 1. Running with npm scripts
+
+If a script is defined in `package.json`, you can run:
+
+```bash
+npm run <script-name>
+
+### Example
+Given this in package.json:
+
+```
+{
+  "scripts": {
+    "fs:create": "node src/fs/create.js"
+  }
+}
+
+To run:
+
+npm run fs:create
+
