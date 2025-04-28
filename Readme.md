@@ -38,3 +38,19 @@ To run:
 npm run fs:create
 ```
 
+## 2. Running manually with Node
+
+You can manually run the files with:
+
+```
+node src/<path-to-file>
+```
+
+**Example**
+To run cp.js manually:
+
+```
+node src/fs/create.js
+```
+
+
